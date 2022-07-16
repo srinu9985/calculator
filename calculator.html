@@ -1,0 +1,70 @@
+<!doctype>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>calculator</title>
+		<link rel="stylesheet" href="calc.css">
+	</head>
+	<body>
+		<h1>Calculator</h1>
+		<div class="ssr">
+			<div class="white">
+				<input type="text" name="res" id='clr' style="width: 285px; height: 40px; text-align: right; font-size: medium;"
+				 onclick="calc()";>
+
+			</div>
+			<div class="b1">
+				<input type="button" value="1" id="bb1" onclick="fun1('1')">
+				<input type="button" value="2" onclick="fun1('2')">
+				<input type="button" value="3" onclick="fun1('3')">
+				<input type="button" value="+" onclick="fun1('+')">
+			</div>
+			<div class="b2">
+				<input type="button" value="4" onclick="fun1('4')">
+				<input type="button" value="5" onclick="fun1('5')">
+				<input type="button" value="6" onclick="fun1('6')">
+				<input type="button" value="-" onclick="fun1('-')">
+			</div>
+			<div class="b3">
+				<input type="button" value="7" onclick="fun1('7')">
+				<input type="button" value="8" onclick="fun1('8')">
+				<input type="button" value="9" onclick="fun1('9')">
+				<input type="button" value="*" onclick="fun1('*')">
+			</div>
+			<div class="b4">
+				<input type="button" value="." onclick="fun1('.')">
+				<input type="button" value="0" onclick="fun1('0')">
+				<input type="button" value="=" onclick="equal()" >
+				<input type="button" value="/" onclick="fun1('/')">
+			</div>
+			<div class="b5">
+				<input type="button" class="b6" value="clear" onclick="sr()">
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			function fun1(s){
+				document.getElementById('clr').value+=s; 
+			}
+			function equal(){
+				var d=document.getElementById('clr').value;
+				var reg=/[0-9+-/*%.]+[+-/*%][0-9+-/*%]+/g
+				if(reg.test(d)){
+					n=eval(d);
+					document.getElementById("clr").value=n;
+					document.getElementById("clr").style.backgroundColor="green";
+
+				}else{
+					document.getElementById('clr').value="invalid";
+					document.getElementById("clr").style.backgroundColor="red";
+				}
+			}
+			function sr(){
+				document.getElementById("clr").value="";
+			}
+		</script>
+
+	</body>
+	</html>
